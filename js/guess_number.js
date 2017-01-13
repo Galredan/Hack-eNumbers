@@ -1,4 +1,4 @@
-function hack_eNator(){
+function guess_number(){
     var bornes = new Array(0,100);
     alert("Choisis un nombre entre 0 et 100 dans ta tete et l'ordinateur va essayer de le deviner.");
     while((bornes[1] - bornes[0]) > 1){
@@ -18,4 +18,4 @@ function hack_eNator(){
         alert("Ton nombre est " + parseInt(bornes[1]))}
 
 }
-hack_eNator();
+guess_number();
