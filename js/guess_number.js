@@ -18,4 +18,4 @@ function guess_number(){
         alert("Ton nombre est " + parseInt(bornes[1]))}
 
 }
-guess_number();
+//guess_number();
