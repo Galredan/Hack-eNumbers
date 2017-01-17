@@ -26,7 +26,7 @@
         <!-- scripts de jeux -->
         <script src="js/guess_number.js"></script>
         <script src="js/find_number.js"></script>
-        <script src="js/tour_tour.js"></script>
+
     </head>
     <body id="page-top">
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -56,7 +56,7 @@
             <div class="container-fluid">
                 <div class="row no-gutter">
                     <div class="col-lg-4 col-sm-6">
-                        <a  class="portfolio-box" data-toggle="modal" data-target=".guess-number">
+                        <a  class="portfolio-box" data-toggle="modal" data-target=".guess-number" onclick="launchgame()">
                             <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
@@ -139,8 +139,8 @@
                             <div id="question">
                                 ici la question
                             </div>
-                            <button id="oui" value="1" type="button" class="btn btn-success">Oui</button>
-                            <button id="non" value="0" type="button" class="btn btn-danger">Non</button>
+                            <button id="oui" value="1" type="button" class="btn btn-success" onclick="oui()">Oui</button>
+                            <button id="non" value="0" type="button" class="btn btn-danger" onclick="non()">Non</button>
                         </div>
                     </div></div>
                 </div>

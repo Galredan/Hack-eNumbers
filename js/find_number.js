@@ -1,4 +1,4 @@
-function find_number();{
+function find_number(){
 	var nombre = Math.floor(Math.random()*15) ;
 	var essai = 0 ;
 	console.log(nombre);
