@@ -67,9 +67,16 @@ function ouiFin(){
     question = "J'ai gagné ! ";
     document.getElementById("question").innerHTML=question;
     remove('bouttons');
+    addExitButton();
 }
 function remove(id) {
     var elem = document.getElementById(id);
     elem.parentNode.removeChild(elem);
     return false;
 }
+
+function addExitButton(){
+    div = '<div><button type="button" class="btn btn-success" data-dismiss="modal">Revenir à la page d\'accueil</button></div>'
+    document.getElementById('fin-modal').innerHTML = div;
+}
+
