@@ -13,4 +13,4 @@ function find_number();{
 	}
 	alert('Bien joué !');
 }
-find_number();
+//find_number();

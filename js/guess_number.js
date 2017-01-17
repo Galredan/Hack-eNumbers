@@ -1,13 +1,16 @@
 function guess_number(){
     var bornes = new Array(0,100);
-    alert("Choisis un nombre entre 0 et 100 dans ta tete et l'ordinateur va essayer de le deviner.");
+    console.log("Lancement")
+    var alert = "Choisis un nombre entre 0 et 100 dans ta tete et l'ordinateur va essayer de le deviner.";
     while((bornes[1] - bornes[0]) > 1){
         var mid = (bornes[0] + bornes[1])/2;
-        var reponse = prompt("Est-ce que ton nombre est strictement supérieur à " + parseInt(mid) + " ? (oui/non) ");
-        if(reponse.toLowerCase() == "oui"){
+        var question = "Est-ce que ton nombre est strictement supérieur à " + parseInt(mid) + " ? (oui/non) ";
+        document.getElementById("question").innerHTML=question;
+
+        if(document.getElementById("oui").addEventListener("click")){
 	 		var bornes = [mid, bornes[1]];
         }
-	 	if(reponse == "non"){
+	 	if(document.getElementById("non").addEventListener("click")){
 	 		var bornes = [bornes[0], mid];
         }
     }
