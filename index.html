@@ -1,138 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Hack eNumbers</title>
-        <!-- Bootstrap Core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom Fonts -->
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-        <!-- Plugin CSS -->
-        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-        <!-- Theme CSS -->
-        <link href="css/creative.min.css" rel="stylesheet">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+
+<head>
+    <meta charset="utf-8">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hack eNumbers</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link href="css/creative.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <!-- scripts de jeux -->
-        <script src="js/guess_number.js"></script>
-        <script src="js/find_number.js"></script>
+    <!-- scripts de jeux -->
+    <script src="js/guess_number.js"></script>
+    <script src="js/find_number.js"></script>
+    <script>
+        $(document).ready(function() {
+            //called when key is pressed in textbox
+            $("#proposition").keypress(function(e) {
+                //if the letter is not digit then display error and don't type anything
+                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                    //display error message
+                    $('#ifError').addClass("has-error");
+                    $("#errmsg").html("Chiffres Uniquement").fadeIn("slow").fadeOut("slow");
+                    setTimeout('$("#ifError").removeClass("has-error")', 1000);
+                    return false;
+                }
+            });
+        });
+    </script>
+</head>
 
-    </head>
-    <body id="page-top">
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<body id="page-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Hack eNumbers</a>
-                </div>
-                <!-- /.navbar-collapse -->
+                <a class="navbar-brand page-scroll" href="#page-top">Hack eNumbers</a>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
-        <header>
-            <div class="header-content">
-                <div class="header-content-inner">
-                    <h1 id="homeHeading">ECRIRE UNE PREMIERE DESCRIPTION ICI</h1>
-                    <hr>
-                    <p>Un paragraphe de description ici aussi</p>
-                    <a href="#jeux" class="btn btn-primary btn-xl page-scroll">Voir les jeux</a>
-                </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">ECRIRE UNE PREMIERE DESCRIPTION ICI</h1>
+                <hr>
+                <p>Un paragraphe de description ici aussi</p>
+                <a href="#jeux" class="btn btn-primary btn-xl page-scroll">Choisir un jeux</a>
+                <a href="" class="btn btn-primary btn-xl page-scroll">Jeux au hasard</a>
             </div>
-        </header>
-        <section class="no-padding" id="jeux">
-            <div class="container-fluid">
-                <div class="row no-gutter">
-                    <div class="col-lg-4 col-sm-6">
-                        <a  class="portfolio-box" data-toggle="modal" data-target=".guess-number" onclick="launchgame()">
-                            <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Je devine votre nombre
-                                    </div>
-                                    <div class="project-name">
-                                        Hack eNator
-                                    </div>
+        </div>
+    </header>
+    <section class="no-padding" id="jeux">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" data-toggle="modal" data-target=".guess-number" onclick="launchgame()">
+                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Je devine votre nombre
+                                </div>
+                                <div class="project-name">
+                                    Hack eNator
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a  class="portfolio-box" data-toggle="modal" data-target=".guess-number">
-                            <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Devinez mon nombre
-                                    </div>
-                                    <div class="project-name">
-                                        Hack e Number
-                                    </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" data-toggle="modal" data-target=".find-number">
+                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Devinez mon nombre
+                                </div>
+                                <div class="project-name">
+                                    Hack e Number
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a  class="portfolio-box" data-toggle="modal" data-target=".guess-number">
-                            <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Jeux en dev
-                                    </div>
-                                    <div class="project-name">
-                                        JPP
-                                    </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a class="portfolio-box" data-toggle="modal" data-target=".guess-number">
+                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Jeux en dev
+                                </div>
+                                <div class="project-name">
+                                    JPP
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
+                </div>
                 </a>
             </div>
         </div>
-    </div>
-</section>
+        </div>
+    </section>
 
-<!-- Premier jeux -->
+    <!-- Premier jeux -->
 
-<div class="modal fade guess-number" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Devinez mon nombre</h4>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div id="fin-modal" class="col-md-10 col-md-offset-1">
-                            <div id="question">
-                                ici la question
-                            </div>
-                            <div id="bouttons">
-                            <button id="oui" type="button" class="btn btn-success" onclick="oui()">Oui</button>
-                            <button id="non" type="button" class="btn btn-danger" onclick="non()">Non</button>
+    <div class="modal fade guess-number" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Je devine ton nombre</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="fin-modal" class="col-md-10 col-md-offset-1">
+                                <div id="init" class="">
+                                </div>
+                                <div id="count">
+                                    6
+                                </div>
+                                <div id="startButton" class="hidden">
+                                    <button id="start" type="button" class="btn btn-success" onclick="initGuess()">Commencer</button>
+                                </div>
+                                <div id="question" class="hidden">
+                                    ici la question
+                                </div>
+                                <div id="bouttons" class="hidden">
+                                    <button id="ouiButton" type="button" class="btn btn-success" onclick="oui()">Oui</button>
+                                    <button id="nonButton" type="button" class="btn btn-danger" onclick="non()">Non</button>
+                                </div>
+                                <div id="exitButton" class="hidden">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Revenir à la page d'accueil</button>
+                                </div>
                             </div>
                         </div>
-                    </div></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Fin Premier jeux -->
+
+    <!-- Second jeux -->
+
+    <div class="modal fade find-number" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Devinez mon nombre</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div id="fin-modal" class="col-md-10 col-md-offset-1">
+                                <div id="initFind" class="">
+                                    Je pense à un nombre entre 0 et 100, à vous de le deviner !
+                                </div>
+                                <div id="winMessage" class="hidden">
+                                    Bravo ! vous avez gagné !
+                                </div>
+                                <div id="findStartButton" class="">
+                                    <button id="start" type="button" class="btn btn-success" onclick="initFind()">Commencer</button>
+                                </div>
+                                <div id="findInput" class="hidden">
+                                    Proposition :<br/><br/>
+                                    <div id="ifError" class="form-group">
+                                        <label class="control-label" for="proposition"><span id="errmsg"></span></label>
+                                        <input type="text" class="form-control" id="proposition">
+                                    </div>
+                                    <button id="ouiButton" type="button" class="btn btn-success" onclick="findPropose()">Proposer</button>
+                                </div>
+                                <div id="essais" class="hidden">
+                                    Nombre d'essais : <span id="nbEssais">0</span>
+                                </div>
+                                <div id="indice" class="hidden">
+                                    Indice : <span id="setHelp"></span>
+                                </div>
+                                <div id="exitButton" class="hidden">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Revenir à la page d'accueil</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fin Second jeux -->
+
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
@@ -142,4 +223,5 @@
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
 </body>
+
 </html>
